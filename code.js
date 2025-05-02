@@ -45,8 +45,12 @@ function charger() {
   }
 }
 
+function getPrestigeMultiplier() {
+  return 1 + prestigePoints * 0.1; // Chaque point de prestige donne +10%
+}
+
 function majAffichage() {
-  document.getElementById("bambou").innerText = bambous;
+  document.getElementById("bambou").innerText = Math.floor(bambous);
   document.getElementById("prixAmelioration").innerText = prixAmelioration;
   document.getElementById("prixAutoClick").innerText = prixAutoClick;
   document.getElementById("nbAutoClickers").innerText = autoClickers;
@@ -58,7 +62,7 @@ function majAffichage() {
 }
 
 function gagnerBambou() {
-  bambous += gainParClic;
+  bambous += Math.floor(gainParClic * getPrestigeMultiplier());  
   majAffichage();
   sauvegarder();
 }
@@ -66,8 +70,8 @@ function gagnerBambou() {
 function ameliorerClick() {
   if (bambous >= prixAmelioration) {
     bambous -= prixAmelioration;
-    gainParClic *= 9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999;
-    prixAmelioration = Math.floor(prixAmelioration * 1.5);
+    gainParClic += 1;
+    prixAmelioration = Math.floor(prixAmelioration * 1.10);
     majAffichage();
     sauvegarder();
   } else {
@@ -80,7 +84,7 @@ function ameliorerClick1() {
     bambous -= prixBooster;
     gainParClic += 10;
     boosters++;
-    prixBooster = Math.floor(prixBooster * 1.5);
+    prixBooster = Math.floor(prixBooster * 1.10);
     majAffichage();
     sauvegarder();
   } else {
@@ -92,7 +96,7 @@ function acheterAutoClick() {
   if (bambous >= prixAutoClick) {
     bambous -= prixAutoClick;
     autoClickers++;
-    prixAutoClick = Math.floor(prixAutoClick * 9999999999999999999999999999999999999999999999999999999999999999999999999);
+    prixAutoClick = Math.floor(prixAutoClick * 1.10);
     majAffichage();
     sauvegarder();
   } else {
@@ -101,7 +105,7 @@ function acheterAutoClick() {
 }
 
 setInterval(() => {
-  bambous += autoClickers;
+  bambous += Math.floor(autoClickers * getPrestigeMultiplier());
   majAffichage();
   sauvegarder();
 }, 1000);
@@ -174,7 +178,6 @@ function creerImagesDVD() {
   }
 }
 
-
 function animeDVD(img) {
   let dx = 1 + Math.random() * 2;
   let dy = 1 + Math.random() * 2;
@@ -190,4 +193,5 @@ function animeDVD(img) {
 // --- Initialisation ---
 charger();
 majAffichage();
+
 if (pandasActifs) creerImagesDVD();
