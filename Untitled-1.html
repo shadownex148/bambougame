@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Clicker Bambou</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <h1>🌿 Clicker du Bambou 🐼</h1>
+
+  <p>Bambous : <span id="bambou">0</span></p>
+
+  <div class="click-section">
+    <button class="btn-click" onclick="gagnerBambou()">🍃 Cliquer !</button>
+    <span class="prestige-compteur">🔯 Prestige : <span id="prestigePoints">0</span></span>
+  </div>
+
+  <div class="click-info">🎯 Gain/clic : <span id="gainParClic">1</span></div>
+
+  <button class="btn-ameliorer" onclick="ameliorerClick()">🔧 Améliorer (+1/clic) – <span id="prixAmelioration">10</span></button>
+  <button class="btn-ameliorer" id="btnBooster" onclick="ameliorerClick1()">🔧 Améliorer (+10/clic) – <span id="prixBooster">100</span></button>
+
+  <div class="click-info1">🎯 Autoclickers : <span id="nbAutoClickers">0</span></div>
+  <button class="btn-autoclick" onclick="acheterAutoClick()">🤖 Auto-clicker (+1/s) – <span id="prixAutoClick">50</span></button>
+
+  <div id="dvd-container"></div>
+
+  <div id="prestigeZone">Prestige à 1 000 000 🌿</div>
+
+  <div id="poemePanda" class="poeme-carte" style="display: none;">
+    <button class="fermer-poeme" onclick="cacherPoeme()">✖</button>
+    <h2>🐼 Ode au Panda 🐼</h2>
+    <p>
+      Doucement il mâche, dans les bois endormis,<br>
+      Le bambou craque sous ses dents, à l’abri.<br>
+      Pelage de neige, regard de charbon,<br>
+      Il rêve en silence sous le grand mont Fujon.<br><br>
+      Roi des forêts, tranquille et discret,<br>
+      Il vit pour manger, il dort sans regret.<br>
+      Mais au cœur du clic, il devient trésor,<br>
+      Donnant du prestige à chaque effort.
+    </p>
+  </div>
+
+  <button id="boutonPoeme" class="btn-revoir-poeme" style="display: none;" onclick="afficherPoeme()">📜 Voir le poème</button>
+  <button id="btn-poeme" onclick="afficherPoemeComplet()" style="display: none;">🌿 Voir Poème du Panda</button>
+
+  <script src="code.js"></script>
+</body>
+</html>
