@@ -7,7 +7,11 @@ let prestigePoints = 0;
 let prixAmelioration = 10;
 let prixAutoClick = 50;
 let prixBooster = 100;
+let prixTurbo = 1000;
+let prixA = 10000;
 let boosters = 0;
+let Turbo = 0;
+let A = 0;
 
 let pandasActifs = true;
 let pandasDVD = [];
@@ -23,7 +27,11 @@ function sauvegarder() {
     prixAutoClick,
     prixBooster,
     boosters,
-    pandasActifs
+    pandasActifs,
+    Turbo,
+    A,
+    prixA,
+    prixTurbo
   };
   localStorage.setItem('bambouClickerSave', JSON.stringify(data));
 }
@@ -40,7 +48,11 @@ function charger() {
     prixAmelioration = data.prixAmelioration || 10;
     prixAutoClick = data.prixAutoClick || 50;
     prixBooster = data.prixBooster || 100;
+    prixA = data.prixA || 10000;
+    prixTurbo = data.prixTurbo || 1000;
     boosters = data.boosters || 0;
+    A = data.A || 0;
+    Turbo = data.Turbo || 0;
     pandasActifs = data.pandasActifs ?? true;
   }
 }
@@ -57,6 +69,8 @@ function majAffichage() {
   document.getElementById("prestigePoints").innerText = prestigePoints;
   document.getElementById("gainParClic").innerText = gainParClic;
   document.getElementById("prixBooster").innerText = prixBooster;
+  document.getElementById("prixTurbo").innerText = prixTurbo;
+  document.getElementById("prixA").innerText = prixA;
   afficherPrestige();
   afficherPoeme();
 }
@@ -85,6 +99,30 @@ function ameliorerClick1() {
     gainParClic += 10;
     boosters++;
     prixBooster = Math.floor(prixBooster * 1.10);
+    majAffichage();
+    sauvegarder();
+  } else {
+    alert("Pas assez de bambous !");
+  }
+}
+function ameliorerTurbo() {
+  if (bambous >= prixTurbo) {
+    bambous -= prixTurbo;
+    gainParClic += 100;
+    Turbo++;
+    prixBooster = Math.floor(prixTurbo * 1.10);
+    majAffichage();
+    sauvegarder();
+  } else {
+    alert("Pas assez de bambous !");
+  }
+}
+function ameliorerA() {
+  if (bambous >= prixA) {
+    bambous -= prixA;
+    gainParClic += 1000;
+    A++;
+    prixBooster = Math.floor(prixA * 1.10);
     majAffichage();
     sauvegarder();
   } else {
@@ -128,6 +166,8 @@ function prestige() {
     prixAmelioration = 10;
     prixAutoClick = 50;
     prixBooster = 100
+    prixTurbo = 1000
+    prixA = 10000
     alert("Bravo ! Tu as gagné un point de prestige !");
     sauvegarder();
     majAffichage();

@@ -194,7 +194,31 @@ button {
     left: 35%;
     transform: translateX(-50%);
     position: absolute;
+  
   }
+
+
+#btnTurbo {
+  top: px;
+  left: 35%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1000000000000000000000;
+
+}
+
+
+#btnA {
+  top: 400px;
+  left: 35%;
+  transform: translateX(-50%);
+  position: absolute;
+  z-index: 1000000000000000000;
+
+}
+
+
+  
   .dvd-panda {
     width: 150px;
     height: auto;
