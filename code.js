@@ -127,6 +127,7 @@ function prestige() {
     autoClickers = 0;
     prixAmelioration = 10;
     prixAutoClick = 50;
+    prixBooster = 100
     alert("Bravo ! Tu as gagné un point de prestige !");
     sauvegarder();
     majAffichage();
