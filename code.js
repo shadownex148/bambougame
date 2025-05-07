@@ -134,7 +134,7 @@ function acheterAutoClick() {
   if (bambous >= prixAutoClick) {
     bambous -= prixAutoClick;
     autoClickers++;
-    prixAutoClick = Math.floor(prixAutoClick * 1.10);
+    prixAutoClick = Math.floor(prixAutoClick * 1.01);
     majAffichage();
     sauvegarder();
   } else {
