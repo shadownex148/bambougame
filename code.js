@@ -58,7 +58,7 @@ function charger() {
 }
 
 function getPrestigeMultiplier() {
-  return 1 + prestigePoints * 0.1; // Chaque point de prestige donne +10%
+  return 1 + prestigePoints * 0.1;
 }
 
 function majAffichage() {
@@ -110,7 +110,7 @@ function ameliorerTurbo() {
     bambous -= prixTurbo;
     gainParClic += 100;
     Turbo++;
-    prixBooster = Math.floor(prixTurbo * 1.10);
+    prixTurbo = Math.floor(prixTurbo * 1.10);
     majAffichage();
     sauvegarder();
   } else {
@@ -122,7 +122,7 @@ function ameliorerA() {
     bambous -= prixA;
     gainParClic += 1000;
     A++;
-    prixBooster = Math.floor(prixA * 1.10);
+    prixA = Math.floor(prixA * 1.10);
     majAffichage();
     sauvegarder();
   } else {
@@ -220,16 +220,16 @@ function creerImagesDVD() {
 }
 
 function animeDVD(img) {
-  let dx = 1 + Math.random() * 2;
-  let dy = 1 + Math.random() * 2;
+  let dx = 1 + Math.round(Math.random() * 2);
+  let dy = 1 + Math.round(Math.random() * 2);
   setInterval(() => {
     const rect = img.getBoundingClientRect();
-    if (rect.left <= 0 || rect.right >= window.innerWidth) dx *= -1;
-    if (rect.top <= 0 || rect.bottom >= window.innerHeight) dy *= -1;
+    if (rect.left <= 0 || rect.right >= window.innerWidth-0) dx *= -1;
+    if (rect.top <= 0 || rect.bottom >= window.innerHeight-0) dy *= -1;
     img.style.left = `${img.offsetLeft + dx}px`;
     img.style.top = `${img.offsetTop + dy}px`;
   }, 20);
-}
+}  
 
 // --- Initialisation ---
 charger();

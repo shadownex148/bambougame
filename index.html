@@ -4,6 +4,19 @@
   <meta charset="UTF-8">
   <title>Clicker Bambou</title>
   <link rel="stylesheet" href="index.css">
+  <style>
+    .ameliorations-colonne {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .btn-ameliorer, .btn-ameliorer1, .btn-ameliorer2 {
+      width: fit-content;
+      padding: 10px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 <body>
   <h1>🌿 Clicker du Bambou 🐼</h1>
@@ -17,14 +30,19 @@
 
   <div class="click-info">🎯 Gain/clic : <span id="gainParClic">1</span></div>
 
-  <button class="btn-ameliorer" onclick="ameliorerClick()">🔧 Améliorer (+1/clic) – <span id="prixAmelioration">10</span></button>
-  <button class="btn-ameliorer" id="btnBooster" onclick="ameliorerClick1()">🔧 Améliorer (+10/clic) – <span id="prixBooster">100</span></button>
-  <button class="btn-ameliorer1" id="btnturbo" onclick="ameliorerTurbo()">🔧 Améliorer (+100/clic) – <span id="prixTurbo">1000</span></button>
-  <button class="btn-ameliorer2" id="btna" onclick="ameliorerA()">🔧 Améliorer (+1000/clic) – <span id="prixA">10000</span></button>
-  
+
+<button id="btn-ameliorer" class="btn-ameliorer" onclick="ameliorerClick()">🔧 Améliorer (+1/clic) – <span id="prixAmelioration">10</span></button>
+
+
+<button id="btnBooster" class="btn-ameliorer" onclick="ameliorerClick1()">🔧 Améliorer (+10/clic) – <span id="prixBooster">100</span></button>
+
+
+<button id="btnturbo" class="btn-ameliorer"  onclick="ameliorerTurbo()">🔧 Améliorer (+100/clic) – <span id="prixTurbo">1000</span></button>
+
+<button id="btnA" class="btn-ameliorer" onclick="ameliorerA()">🔧 Améliorer (+1000/clic) – <span id="prixA">10000</span></button>
 
   <div class="click-info1">🎯 Autoclickers : <span id="nbAutoClickers">0</span></div>
-  <button class="btn-autoclick" onclick="acheterAutoClick()">🤖 Auto-clicker (+1/s) – <span id="prixAutoClick">50</span></button>
+  <button id="btn-autoclick" class="btn-autoclick" onclick="acheterAutoClick()">🤖 Auto-clicker (+1/s) – <span id="prixAutoClick">50</span></button>
 
   <div id="dvd-container"></div>
 
@@ -47,12 +65,6 @@
 
   <button id="boutonPoeme" class="btn-revoir-poeme" style="display: none;" onclick="afficherPoeme()">📜 Voir le poème</button>
   <button id="btn-poeme" onclick="afficherPoemeComplet()" style="display: none;">🌿 Voir Poème du Panda</button>
-  <style>
-    #btnturbo, #btna {
-      display: inline-block !important;
-    }
-  </style>
-  
 
   <script src="code.js"></script>
 </body>
