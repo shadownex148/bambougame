@@ -5,7 +5,7 @@ let ameliorations = 0;
 let prestigePoints = 0;
 
 let prixAmelioration = 10;
-let prixAutoClick = 50;
+let prixAutoClick = 25;
 let prixBooster = 100;
 let prixTurbo = 1000;
 let prixA = 10000;
@@ -46,7 +46,7 @@ function charger() {
     ameliorations = data.ameliorations || 0;
     prestigePoints = data.prestigePoints || 0;
     prixAmelioration = data.prixAmelioration || 10;
-    prixAutoClick = data.prixAutoClick || 50;
+    prixAutoClick = data.prixAutoClick || 25;
     prixBooster = data.prixBooster || 100;
     prixA = data.prixA || 10000;
     prixTurbo = data.prixTurbo || 1000;
@@ -134,7 +134,7 @@ function acheterAutoClick() {
   if (bambous >= prixAutoClick) {
     bambous -= prixAutoClick;
     autoClickers++;
-    prixAutoClick = Math.floor(prixAutoClick * 1.01);
+    prixAutoClick = Math.floor(prixAutoClick * 1.05);
     majAffichage();
     sauvegarder();
   } else {
@@ -164,7 +164,7 @@ function prestige() {
     gainParClic = 1;
     autoClickers = 0;
     prixAmelioration = 10;
-    prixAutoClick = 50;
+    prixAutoClick = 25;
     prixBooster = 100
     prixTurbo = 1000
     prixA = 10000
