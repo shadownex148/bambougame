@@ -159,7 +159,7 @@ function afficherPrestige() {
 
 function prestige() {
   if (bambous >= 1000000) {
-    prestigePoints++;
+    prestigePoints += Math.round(bambous/1000000);
     bambous = 0;
     gainParClic = 1;
     autoClickers = 0;
