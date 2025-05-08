@@ -255,7 +255,7 @@ const upgrades = [
     name: "Double gain de bambous",
     cost: 150,
     apply: () => {
-      gainParClic *= 1.1;
+      Math.round (gainParClic *= 1.1);
     },
   },
   {
