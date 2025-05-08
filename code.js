@@ -255,7 +255,7 @@ const upgrades = [
     name: "Double gain de bambous",
     cost: 150,
     apply: () => {
-      Math.round (gainParClic *= 1.1);
+      Math.round (gainParClic *= 1.2);
     },
   },
   {
@@ -263,6 +263,17 @@ const upgrades = [
     cost: 100,
     apply: () => {
       autoClickers += 1000;
+    },
+  },
+  {
+    name: "Rénitialisation des prix",
+    cost: 175,
+    apply: () => {
+      prixAmelioration = 10;
+    prixAutoClick = 25;
+    prixBooster = 100
+    prixTurbo = 1000
+    prixA = 10000
     },
   },
 ];
