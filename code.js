@@ -236,3 +236,56 @@ charger();
 majAffichage();
 
 if (pandasActifs) creerImagesDVD();
+
+const upgradeButton = document.getElementById("upgradeButton");
+const upgradePanel = document.getElementById("upgradePanel");
+const upgradeList = document.getElementById("upgradeList");
+
+upgradeButton.addEventListener("click", () => {
+  upgradePanel.classList.toggle("hidden");
+});
+
+function closeUpgradePanel() {
+  upgradePanel.classList.add("hidden");
+}
+
+// Exemple de données d'améliorations :
+const upgrades = [
+  {
+    name: "Double gain de bambous",
+    cost: 150,
+    apply: () => {
+      gainParClic *= 1.1;
+    },
+  },
+  {
+    name: "Auto-click +1000",
+    cost: 100,
+    apply: () => {
+      autoClickers += 1000;
+    },
+  },
+];
+
+// Fonction pour afficher les améliorations
+function displayUpgrades() {
+  upgradeList.innerHTML = "";
+  upgrades.forEach((upgrade, index) => {
+    const button = document.createElement("button");
+    button.textContent = `${upgrade.name} - ${upgrade.cost} points de prestige`;
+    button.onclick = () => {
+      if (prestigePoints >= upgrade.cost) {
+        prestigePoints -= upgrade.cost;
+        upgrade.apply();
+        saveGame(); // Sauvegarder si nécessaire
+        displayUpgrades(); // Mettre à jour l'affichage
+      } else {
+        alert("Pas assez de points de prestige !");
+      }
+    };
+    upgradeList.appendChild(button);
+  });
+}
+
+// Appelle cette fonction quand tu ouvres le panneau :
+upgradeButton.addEventListener("click", displayUpgrades);

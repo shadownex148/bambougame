@@ -259,5 +259,34 @@ button {
 }
 
 
-/* Tu peux ajouter des styles similaires pour d'autres boutons */
+.upgrade-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+  padding: 10px 15px;
+  font-size: 16px;
+  background-color: gold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.upgrade-panel {
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  background-color: #222;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 10px black;
+  z-index: 999;
+}
+
+.hidden {
+  display: none;
+}
+
 
